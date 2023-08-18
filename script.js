@@ -1,4 +1,17 @@
 // noinspection JSUnusedGlobalSymbols
+function WubiIndex() {
+
+    return {
+        inputText: '',
+
+        onTextChanged() {
+            if (!this.inputText.match(/[\u4e00-\u9fa5]+/g)) {
+                return 'error';
+            }
+            return this.inputText === '' ? 'error' : this.inputText;
+        },
+    }
+}
 
 function WubiInput() {
     const whitespaceCharacters = [' ', ' ',

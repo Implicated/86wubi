@@ -1,47 +1,44 @@
 <head xmlns="http://www.w3.org/1999/html">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin-top: 10%;
+            margin-left: 40%;
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+        }
+
+        #inputBox {
+            background-color: white;
+            position: absolute;
+            border: 1px solid black;
+        }
+
+        img {
+            width: 336px;
+            height: 109px;
+        }
+    </style>
 </head>
 
 <body>
-<div x-data="WubiInput()">
+<div x-data="WubiIndex()">
     <div>
-        <input style="width: 110px" type="button" @click="showTextarea = !showTextarea" value="编辑输入文本"/>
-        <input style="width: 110px" type="button" @click="resetProgress" value="重置进度"/>
-        <input style="width: 110px" type="button" @click="randomText()" value="随机"/>
+        <a href="./practise.html">
+            <input style="width: 110px" type="button" value="practise"/>
+        </a>
     </div>
-    <div>
-        <input style="width: 110px" type="button" @click="refreshText('text/common.txt')" value="常用字(2500)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/secondary.txt')" value="次常用字(1000)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/error.txt')" value="易错字(382)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/duplicate.txt')" value="重码字"/>
-    </div>
-    <div>
-        <input style="width: 110px" type="button" @click="refreshText('text/base.txt')" value="字根字(24)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/first.txt')" value="一级简码(25)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/second.txt')" value="二级简码(606)"/>
-        <input style="width: 110px" type="button" @click="refreshText('text/third.txt')" value="三级简码(1060)"/>
-    </div>
-
-
-    <textarea x-show="showTextarea" x-model="target" x-ref="textarea"></textarea>
-
-    <div id="inputBox" x-show="showInputBox">
+    <br/>
+    <div id="inputBox">
         <input x-model="inputText" @keyup="onTextChanged()"
                placeholder="在此开始输入" class="caret-hidden" id="inputText"><br/>
-        <input x-model.number="progress" type="number" hidden="hidden"><input x-model.number="letter" type="number" hidden="hidden"><br/><br/>
-        <template x-if="!isStopWord(getCharacter())">
-            <img :src="`cache/${getCharacter()}.gif`" onerror="error(this)"/><br/>
+        <template x-if="true">
+            <img :src="`cache/${onTextChanged()}.gif`" onerror="error(this)"/><br/>
         </template>
     </div>
-
-    <p x-init="getText()">
-        <span x-text="getTargetDone()" class="text-done"></span>
-        <span id="cursor"></span><span x-text="getTargetTodo()" class="text-todo"></span>
-    </p>
 </div>
 
 <script src="script.js?v1" defer></script>
 <script src="//unpkg.com/alpinejs" defer></script>
-
 </body>
