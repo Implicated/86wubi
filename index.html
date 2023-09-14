@@ -2,22 +2,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         body {
-            margin-top: 10%;
-            margin-left: 40%;
-            /*display: flex;*/
-            /*justify-content: center;*/
-            /*align-items: center;*/
+            width: 60%;
+            position: absolute;
+            margin-left: 20%;
         }
 
         #inputBox {
             background-color: white;
-            position: absolute;
+            position: static;
             border: 1px solid black;
         }
 
-        img {
-            width: 336px;
-            height: 109px;
+        #imgBox {
+            position: static;
+            /*width: 724px;*/
+            /*height: 512px;*/
+            width: 95%;
+            height: 95%;
         }
     </style>
 </head>
@@ -37,6 +38,9 @@
             <img :src="`cache/${onTextChanged()}.gif`" onerror="error(this)"/><br/>
         </template>
     </div>
+</div>
+<div>
+    <img id='imgBox' src="cache/wubi-key.png">
 </div>
 
 <script src="script.js?v1" defer></script>

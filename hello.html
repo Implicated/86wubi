@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        How to Show Hide Dropdown Using CSS
+    </title>
+
+    <style>
+        ul {
+            padding: 0;
+            list-style: none;
+            background: #f2f2f2;
+        }
+
+        ul li {
+            display: block;
+            position: relative;
+            line-height: 21px;
+            text-align: left;
+        }
+
+        ul li a {
+            display: block;
+            padding: 8px 25px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            color: #fff;
+            background: #939393;
+        }
+
+        ul li ul.dropdown {
+            min-width: 100%;
+            /* Set width of the dropdown */
+            background: #f2f2f2;
+            display: none;
+            position: absolute;
+            z-index: 999;
+            left: 0;
+        }
+
+        ul li:hover ul.dropdown {
+            display: block;
+            /* Display the dropdown */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        GeeksForGeeks
+    </h1>
+
+    <h2>
+        How to show and hide dropdown
+        menu on mouse hover using CSS?
+    </h2>
+
+    <ul>
+        <li>
+            <a href="#">Programming languages</a>
+            <ul class="dropdown">
+                <li><a href="#">C++</a></li>
+                <li><a href="#">java</a></li>
+                <li><a href="#">php</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>
